@@ -1,4 +1,4 @@
-import { DirectoryNode } from "./types";
+import { DirectoryNode } from "../../05_shared/types";
 
 export default class FileManager {
 
