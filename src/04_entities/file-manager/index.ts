@@ -1,4 +1,4 @@
-import { DirectoryNode } from "../../05_shared/types";
+import { Node } from "../../05_shared/types";
 
 export default class FileManager {
 
@@ -6,7 +6,7 @@ export default class FileManager {
 
   protected currentDirectoryPath = "/";
 
-  protected currentDirectoryNode?: DirectoryNode;
+  protected currentDirectoryNode?: Node;
 
 
 }

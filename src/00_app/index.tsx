@@ -1,9 +1,11 @@
+import HomePage from "src/01_pages/home-page"
 
 function App() {
+ 
 
   return (
     <>
-      hi
+      <HomePage />
     </>
   )
 }
