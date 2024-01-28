@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { Node } from "../types";
 
-export function newNode(maxNested: number): Node {
+export function newNode(maxNested = 10): Node {
   const node: Node = {
     name: faker.system.fileName(),
     path: faker.system.filePath(),

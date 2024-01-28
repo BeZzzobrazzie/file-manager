@@ -1,4 +1,4 @@
-import { listNodes } from "../lib/data";
+import { newNode } from "../lib/data";
 import FileManagerServiceInterface from "./types";
 
 export class FileManagerService implements FileManagerServiceInterface {
@@ -6,7 +6,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     return new Promise((resolve) => {
       resolve({
         data: {
-          nodes: listNodes(),
+          nodes: newNode(),
         },
       });
     });
@@ -36,3 +36,6 @@ export class FileManagerService implements FileManagerServiceInterface {
     throw new Error("Method not implemented.");
   }
 }
+
+const fileManagerService = new FileManagerService();
+export default fileManagerService;
