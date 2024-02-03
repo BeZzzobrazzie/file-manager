@@ -1,4 +1,4 @@
-import { newNode } from "../lib/data";
+import { newDirectoryNode } from "../lib/data";
 import FileManagerServiceInterface from "./types";
 
 export class FileManagerService implements FileManagerServiceInterface {
@@ -6,7 +6,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     return new Promise((resolve) => {
       resolve({
         data: {
-          nodes: newNode(),
+          nodes: newDirectoryNode(),
         },
       });
     });
