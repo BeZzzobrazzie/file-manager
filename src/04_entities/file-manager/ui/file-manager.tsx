@@ -11,22 +11,30 @@ import BaseFileManager from "../lib/base-file-manager";
 export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [currentDirectoryNode, setCurrentDirectoryNode] = useState<Node>();
+  const [rootDirectoryNode, setRootDirectoryNode] = useState<Node>();
 
-  const {current: fileManager} = useRef(new BaseFileManager());
+  const { current: fileManager } = useRef(new BaseFileManager());
 
   console.log(currentDirectoryNode);
 
+  const load = function (path: string, isRoot = false) {
+    setIsLoading(true);
+    fileManager
+      .load(path)
+      .then((node) => {
+        setCurrentDirectoryNode(node);
+        if (isRoot) setRootDirectoryNode(node);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   useEffect(() => {
     if (!rootPath || !open) return;
-    
-    setIsLoading(true);
 
-    fileManager.load(rootPath).then(directoryNode => {
-      setIsLoading(false);
-      setCurrentDirectoryNode(directoryNode);
-    });
-  }, [rootPath, fileManager, open]);
-
+    load(rootPath, true);
+  }, [rootPath, fileManager, open, load]);
 
   return (
     <>
