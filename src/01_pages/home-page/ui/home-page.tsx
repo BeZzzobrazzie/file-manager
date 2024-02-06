@@ -6,9 +6,9 @@ import { FileManagerService } from "src/05_shared/api";
 const fileManager = new FileManagerService();
 
 export function HomePage() {
-  fileManager.list("/").then((response) => {
-    console.log(response.data);
-  });
+  // fileManager.list("/").then((response) => {
+  //   console.log(response.data);
+  // });
 
   const [openFileManager, setOpenFileManager] = useState(false);
 

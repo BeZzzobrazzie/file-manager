@@ -15,7 +15,7 @@ export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
 
   const { current: fileManager } = useRef(new BaseFileManager());
 
-  console.log(currentDirectoryNode);
+  //console.log(currentDirectoryNode);
 
   const load = function (path: string, isRoot = false) {
     setIsLoading(true);
@@ -32,9 +32,10 @@ export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
 
   useEffect(() => {
     if (!rootPath || !open) return;
-
     load(rootPath, true);
-  }, [rootPath, fileManager, open, load]);
+  }, [rootPath, open]); //rootPath, fileManager, open, load
+
+
 
   return (
     <>
@@ -43,7 +44,7 @@ export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
         <div className={classes["body-wrapper"]}>
           <Grid>
             <Grid.Col span={3}>
-              <Sidebar />
+              <Sidebar rootDirectory={rootDirectoryNode}/>
             </Grid.Col>
             <Grid.Col span={9}>
               <Content />

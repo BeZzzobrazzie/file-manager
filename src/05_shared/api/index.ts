@@ -6,7 +6,7 @@ export class FileManagerService implements FileManagerServiceInterface {
     return new Promise((resolve) => {
       resolve({
         data: {
-          nodes: newDirectoryNode(),
+          node: newDirectoryNode(),
         },
       });
     });

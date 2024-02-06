@@ -1,6 +1,8 @@
 import { faker } from "@faker-js/faker";
 import { Node } from "../types";
 
+
+
 export function newNode(maxNested = 10): Node {
   const isDirectory =  faker.datatype.boolean();
   const node: Node = {
@@ -21,12 +23,13 @@ export function newNode(maxNested = 10): Node {
 export function newDirectoryNode() {
   const node = newNode();
   node.children = listNodes(faker.number.int({min: 3, max: 4}), 5);
+  
   node.name = faker.system.directoryPath();
   node.isDirectory = true;
   return node;
 }
 
-export function listNodes(maxNodes = 10, maxNested = 10): Node[] {
+export function listNodes(maxNodes = 10, maxNested = 3): Node[] {
 
   let arr = [];
   for (let i = 0; i < maxNodes; i++) {
