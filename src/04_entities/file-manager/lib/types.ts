@@ -3,3 +3,5 @@ export type FileManagerProps = {
   rootPath?: string;
   onClose: () => void;
 }
+
+export type FileManagerEvents = "loading" | "load" | "directoryChange";

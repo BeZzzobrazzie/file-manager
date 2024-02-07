@@ -25,6 +25,7 @@ export default function SidebarNode({ icon, node, navProps={}, }: SidebarNodePro
     <NavLink
       {...navProps}
       active={isActiveNode}
+      onClick={() => fileManager.load(node.path)}
       label={
         <>
           <span className={classes["icon-wrapper"]}>{icon}</span>
