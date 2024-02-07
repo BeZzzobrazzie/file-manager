@@ -7,6 +7,7 @@ import classes from "./classes.module.css";
 import { useEffect, useRef, useState } from "react";
 import { Node } from "src/05_shared/types";
 import BaseFileManager from "../lib/base-file-manager";
+import FileManagerContext from "src/05_shared/lib/contexts/FileManager.context";
 
 export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,16 +36,14 @@ export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
     load(rootPath, true);
   }, [rootPath, open]); //rootPath, fileManager, open, load
 
-
-
   return (
-    <>
+    <FileManagerContext.Provider value={fileManager}>
       <Modal size="xl" opened={open} onClose={onClose}>
         <Toolbar />
         <div className={classes["body-wrapper"]}>
           <Grid>
             <Grid.Col span={3}>
-              <Sidebar rootDirectory={rootDirectoryNode}/>
+              <Sidebar rootDirectory={rootDirectoryNode} />
             </Grid.Col>
             <Grid.Col span={9}>
               <Content />
@@ -52,7 +51,7 @@ export function FileManager({ open, onClose, rootPath }: FileManagerProps) {
           </Grid>
         </div>
       </Modal>
-    </>
+    </FileManagerContext.Provider>
   );
 }
 

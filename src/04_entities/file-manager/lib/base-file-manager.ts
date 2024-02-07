@@ -3,11 +3,11 @@ import { Node } from "src/05_shared/types";
 
 export default class BaseFileManager {
 
-  protected rootPath = "/";
+  public rootPath = "/";
 
-  protected currentDirectoryPath = "/";
+  public currentDirectoryPath = "/";
 
-  protected currentDirectoryNode?: Node;
+  public currentDirectoryNode?: Node;
 
   public setRootPath(rootPath: string): BaseFileManager {
     this.rootPath = rootPath;
